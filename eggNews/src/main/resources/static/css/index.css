@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #ffcb00!important;
+}
+body{
+    background-image: url(/imagen/FondoZoom_2.jpg);
+    background-size: cover;
+}
+.tarjetas{
+    display: flex;
+    gap: 20px;
+    flex-direction: inherit;
+    margin-top: 20px;
+    margin-left: 20px;
+    justify-content: center; 
+}
+
+.form-group {
+
+}

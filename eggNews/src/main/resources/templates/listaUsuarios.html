@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head"></head>
+    <body>
+        <nav th:replace ="/fragments/navbar :: nav"></nav>
+        <table class="table" style="width: 43rem;" align="center" >
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col" >Imagen</th>
+                    <th scope="col" >Rol</th>
+                    <th scope="col" >Cambiar Rol</th>
+                    <th scope="col" >Estado</th>
+                    <th scope="col" >Cambiar Estado</th>
+                    <th scope="col" >Modificar</th>
+
+                </tr>
+            </thead>
+            <tbody th:each= " usuario : ${usuarios}">
+                <tr>
+                    <th scope="row" th:text="${usuario.id}" ></th>
+                    <th  width:25ch scope="row" th:text="${usuario.nombreUsuario}" ></th>
+                    <th><a><img th:if="${usuario.imagen != null}" class="logo2" th:src="@{/imagen/perfil/__${usuario.id}__}" alt="Img usuario"
+                                style="width: 50px;
+                                height: 50px;
+                                border-radius: 30%;
+                                overflow: hidden;"></a> <!-- imagenControlador--></td>
+                    <th scope="col" th:text="${usuario.rol}" ></th>
+                    <th scope="col" style="border-radius: 30%;">
+                        <div > 
+                            <form th:action="@{/addmin/modificarRol/__${usuario.id}__}"  method="POST">
+                                <input hidden th:value="${id}" name="id">
+                                <select onchange="this.form.submit()" name="rol"class="form-select" >
+                                    <option selected>Rol</option>
+                                    <option >User</option>
+                                    <option>Admin</option>
+                                    <option>Periodista</option>
+                                </select>
+                            </form>
+                        </div>
+                    </th>
+                    <th scope="col" th:text="${usuario.activo}"></th>
+                    <th scope="col" style="border-radius: 30%;">
+                        <div > 
+                            
+                            <form th:action="@{/addmin/modificarEstado/__${usuario.id}__}"  method="POST">
+                                <input hidden th:value="${id}" name="id">
+                                <select class="form-select" name="activo" onchange="this.form.submit()">
+                                    <option selected>Estado</option>
+                                    <option value="TRUE">True</option>
+                                    <option >False</option>
+                                </select>
+                            </form>
+                        </div>
+                    </th>
+
+
+                    <th><a  th:href="@{/perfil/__${usuario.id}__}" >Modificar</a></th>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </body>
+</html>

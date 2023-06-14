@@ -1,0 +1,27 @@
+body{
+    background-image: url(/imagen/FondoZoom.jpg);
+    background-size: cover;
+   
+}
+.navbar{
+    background-color: #ffcb00!important;
+}
+.registro{
+    margin-top: 25px;
+}
+.btn{
+    margin-left: 25%;
+    margin-top: 20px;
+}
+.mb-3{
+    margin-left: 25%;
+    margin-right: 25%
+}
+
+.form-floating{
+    margin-left: 25%;
+    margin-right: 25%
+}
+.form-control{
+    justify-content: center!important;
+}

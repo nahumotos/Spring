@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Egg News</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:if="${session.usuariosession != null}" class="nav-link active" aria-current="page" th:href="@{/admin/lista}">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="hasAnyRole('ADMIN','PERIODISTA')" class="nav-link active" aria-current="page" th:href="@{/admin/form}">Cargar Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${session.usuariosession == null}" class="nav-link active" aria-current="page" th:href="@{/login}">login</a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${session.usuariosession == null}" class="nav-link active" aria-current="page" th:href="@{/registrar}">registrate</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('ADMIN')" class="nav-link active" aria-current="page" th:href="@{/addmin/listaUsuarios}">Lista Usuarios</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Perfil
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li><a class="dropdown-item" href="/logout" >Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" th:href="@{/perfil}" >Editar Perfil</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--<a><img th:if="${session.usuariosession != null}" th:scr="@{/imagen/perfil/__${session.usuariosession.id}__}" ></a>
+<div ><p class="tituloNoticias" th:if="${session.usuariosession != null}" th:text="'Hola ' + ${session.usuariosession.nombreUsuario}"</p></div>-->

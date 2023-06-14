@@ -1,0 +1,22 @@
+
+body{
+    background-image: url(/imagen/FondoZoom.jpg);
+    background-size: cover;
+   
+}
+.tituloCuerpo{
+    margin-top: 35px;
+    margin-left: 20px;
+    margin-right: 250px;
+}
+.navbar{
+    background-color: #ffcb00!important;
+}
+.table{
+    background-color: rgb(32,33,36);
+    color: white;
+    border-color: rgb(32,33,36);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
